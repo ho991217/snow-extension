@@ -1,0 +1,29 @@
+{
+  "name": "E-Learning Downloader",
+  "description": "DKU E-Learning Downloader created by Ho Yeon Lee",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "permissions": ["<all_urls>", "webRequest", "webRequestBlocking"],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://canvas.dankook.ac.kr/courses/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
