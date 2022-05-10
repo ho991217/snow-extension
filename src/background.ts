@@ -1,5 +1,4 @@
 // This file is ran as a background script
-
 const downloadUrls: string[] = [];
 
 chrome.webRequest.onSendHeaders.addListener(
@@ -18,5 +17,7 @@ chrome.webRequest.onSendHeaders.addListener(
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message === "download-url") {
     sendResponse(downloadUrls);
+  } else if (message === "clear-urls") {
+    downloadUrls.length = 0;
   }
 });
